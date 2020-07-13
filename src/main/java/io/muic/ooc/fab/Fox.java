@@ -1,10 +1,12 @@
-package io.muic.ooc.fab;
+package io.muic.ooc.fab.animals;
+
+import io.muic.ooc.fab.Field;
+import io.muic.ooc.fab.Location;
 
 import java.util.List;
 import java.util.Iterator;
-import java.util.Random;
 
-public class Fox extends Animal{
+public class Fox extends Animal {
 
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.

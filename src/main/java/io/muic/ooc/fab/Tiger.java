@@ -1,15 +1,18 @@
-package io.muic.ooc.fab;
+package io.muic.ooc.fab.animals;
+
+import io.muic.ooc.fab.Field;
+import io.muic.ooc.fab.Location;
 
 import java.util.Iterator;
 import java.util.List;
 
-public class Tiger extends Animal{
+public class Tiger extends Animal {
 
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 9;
 
-    // The fox's food level, which is increased by eating rabbits.
+    // The Tiger's food level, which is increased by eating rabbits and foxes.
     private int foodLevel;
 
     /**
@@ -26,6 +29,7 @@ public class Tiger extends Animal{
         foodLevel = RANDOM.nextInt(RABBIT_FOOD_VALUE);
     }
 
+    // move to new location;
     @Override
     public Location moveToNewLocation() {
         Location newLocation = findFood();

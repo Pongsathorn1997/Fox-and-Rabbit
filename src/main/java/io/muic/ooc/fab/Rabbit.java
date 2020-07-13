@@ -1,9 +1,9 @@
-package io.muic.ooc.fab;
+package io.muic.ooc.fab.animals;
 
-import java.util.List;
-import java.util.Random;
+import io.muic.ooc.fab.Location;
+import io.muic.ooc.fab.animals.Animal;
 
-public class Rabbit extends Animal{
+public class Rabbit extends Animal {
 
 
     @Override
