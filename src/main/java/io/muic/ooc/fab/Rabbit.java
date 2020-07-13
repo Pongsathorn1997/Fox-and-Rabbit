@@ -2,7 +2,6 @@ package io.muic.ooc.fab;
 
 public class Rabbit extends Animal {
 
-
     @Override
     public Location moveToNewLocation() {
         return field.freeAdjacentLocation(getLocation());
