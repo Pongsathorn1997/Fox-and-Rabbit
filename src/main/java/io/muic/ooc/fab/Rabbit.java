@@ -1,7 +1,4 @@
-package io.muic.ooc.fab.animals;
-
-import io.muic.ooc.fab.Location;
-import io.muic.ooc.fab.animals.Animal;
+package io.muic.ooc.fab;
 
 public class Rabbit extends Animal {
 

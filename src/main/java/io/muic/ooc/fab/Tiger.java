@@ -1,16 +1,9 @@
-package io.muic.ooc.fab.animals;
-
-import io.muic.ooc.fab.Field;
-import io.muic.ooc.fab.Location;
+package io.muic.ooc.fab;
 
 import java.util.Iterator;
 import java.util.List;
 
 public class Tiger extends Animal {
-
-    // The food value of a single rabbit. In effect, this is the
-    // number of steps a fox can go before it has to eat again.
-    private static final int RABBIT_FOOD_VALUE = 9;
 
     // The Tiger's food level, which is increased by eating rabbits and foxes.
     private int foodLevel;
@@ -26,7 +19,8 @@ public class Tiger extends Animal {
     @Override
     public void initialize(boolean randomAge, Field field, Location location) {
         super.initialize(randomAge, field, location);
-        foodLevel = RANDOM.nextInt(RABBIT_FOOD_VALUE);
+        // setting the food level for tiger
+        foodLevel = RANDOM.nextInt(AnimalType.RABBIT.getFoodValue() + AnimalType.FOX.getFoodValue());
     }
 
     // move to new location;
@@ -63,7 +57,7 @@ public class Tiger extends Animal {
     }
 
     /**
-     * Look for rabbits adjacent to the current location. Only the first live
+     * Look for rabbits and foxes adjacent to the current location. Only the first live
      * rabbit is eaten.
      *
      * @return Where food was found, or null if it wasn't.
@@ -74,11 +68,21 @@ public class Tiger extends Animal {
         while (it.hasNext()) {
             Location where = it.next();
             Object animal = field.getObjectAt(where);
+            // making it looking for rabbit
             if (animal instanceof Rabbit) {
                 Rabbit rabbit = (Rabbit) animal;
                 if (rabbit.isAlive()) {
                     rabbit.setDead();
-                    foodLevel = RABBIT_FOOD_VALUE;
+                    foodLevel = AnimalType.RABBIT.getFoodValue();
+                    return where;
+                }
+            }
+            // this one looking for fox
+            if (animal instanceof Fox) {
+                Fox fox = (Fox) animal;
+                if (fox.isAlive()) {
+                    fox.setDead();
+                    foodLevel = AnimalType.FOX.getFoodValue();
                     return where;
                 }
             }
@@ -92,9 +96,10 @@ public class Tiger extends Animal {
         return 200;
     }
 
+    // minimize the breedingProbability because it now can eat both fox and rabbit
     @Override
     protected double getBreedingProbability() {
-        return 0.08;
+        return 0.02;
     }
 
     @Override
