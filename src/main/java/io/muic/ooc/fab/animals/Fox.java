@@ -1,9 +1,10 @@
 package io.muic.ooc.fab;
 
-import java.util.Iterator;
 import java.util.List;
+import java.util.Iterator;
+import java.util.Random;
 
-public class Tiger extends Animal{
+public class Fox extends Animal{
 
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.
@@ -85,12 +86,12 @@ public class Tiger extends Animal{
 
     @Override
     protected int getMaxAge() {
-        return 200;
+        return 150;
     }
 
     @Override
     protected double getBreedingProbability() {
-        return 0.05;
+        return 0.08;
     }
 
     @Override
@@ -100,6 +101,6 @@ public class Tiger extends Animal{
 
     @Override
     protected int getBreedingAge() {
-        return 30;
+        return 15;
     }
 }
